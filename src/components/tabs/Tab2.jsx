@@ -16,20 +16,26 @@ const Tab2 = () => {
       <img
         src="NameCard.png"
         alt="Image 1"
-        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square object-contain"
+        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
         onClick={() => handleImageClick('NameCard.png')}
       />
       <img
         src="PosterOpening.png"
         alt="Image 2"
-        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square object-contain"
+        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
         onClick={() => handleImageClick('PosterOpening.png')}
       />
       <img
         src="DesignMenu.png"
         alt="Image 3"
-        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square object-contain"
+        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
         onClick={() => handleImageClick('DesignMenu.png')}
+      />
+         <img
+        src="Grooming.png"
+        alt="Image 4"
+        className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
+        onClick={() => handleImageClick('Grooming.png')}
       />
 
       {selectedImage && (

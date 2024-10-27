@@ -24,7 +24,7 @@ const Aside = () => {
         <div className="flex flex-col justify-center items-center">
           <h2 className="mt-5 mb-2 text-xl font-bold">CINDHI PRATIWI</h2>
           <h4 className="bg-black rounded py-[5px] px-[10px]">
-            UI/UX Designer
+          Graphic Designer
           </h4>
         </div>
 

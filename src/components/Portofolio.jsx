@@ -32,7 +32,7 @@ const Portofolio = ({ setActiveScreen }) => {
         "My portfolio is a testament to my passion for crafting exceptional
         digital experiences. Explore my projects and see how I've combined
         design and development to create beautiful and functional solutions. My
-        certifications further validate my expertise in the field.".
+        certifications further validate my expertise in the field."
       </p>
 
       {/* Nav desktop */}

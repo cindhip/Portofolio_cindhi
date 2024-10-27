@@ -7,16 +7,11 @@ const Content = ({ setActiveScreen }) => {
         About Me
       </h1>
       <p className="text-[#555] my-2">
-        As a passionate web developer and UI/UX designer, I am always eager to
-        learn about the latest trends and technologies. I am particularly
-        interested in the intersection of design and development, and I am
-        always striving to create user experiences that are both beautiful and
-        functional.
+      As a graphic designer, I am skilled in both design and development tools. I utilize 
+      Figma and Canva for creating visually appealing designs, while leveraging HTML, CSS, 
+      JavaScript, and React to bring them to life as functional web applications.
       </p>
-      <p className="text-[#555] my-6">
-        My skills include HTML, CSS, JavaScript, and React, which I use to build
-        responsive and user-friendly web applications.
-      </p>
+  
 
       <h2 className="text-[#f2f2f2] text-[2rem] my-2 font-bold">
         What I Do !!!
