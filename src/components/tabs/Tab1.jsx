@@ -19,6 +19,7 @@ const Tab1 = () => {
     {
       src: '/tour&travel.png',
       alt: 'Image 4',
+      
       hasOverlay: true,
       overlayImages: [
         '/1.png',

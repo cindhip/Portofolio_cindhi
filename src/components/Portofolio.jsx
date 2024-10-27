@@ -3,7 +3,6 @@ import { IoClose } from "react-icons/io5";
 import Tab1 from "./tabs/Tab1";
 import Tab2 from "./tabs/Tab2";
 import Tab3 from "./tabs/Tab3";
-import Tab4 from "./tabs/Tab4";
 
 const Portofolio = ({ setActiveScreen }) => {
   const [activeTab, setActiveTab] = useState("UI/UX");
@@ -12,12 +11,10 @@ const Portofolio = ({ setActiveScreen }) => {
     switch (activeTab) {
       case "UI/UX":
         return <Tab1 />;
-      case "Frontend":
+      case "Design":
         return <Tab2 />;
-      case "Fullstack":
-        return <Tab3 />;
       case "Certs":
-        return <Tab4 />;
+        return <Tab3 />;
     }
   };
   return (
@@ -47,15 +44,15 @@ const Portofolio = ({ setActiveScreen }) => {
             }`}
             onClick={() => setActiveTab("UI/UX")}
           >
-            <a>UI/UX Design</a>
+            <a>UI/UX</a>
           </li>
           <li
             className={`cursor-pointer w-36 xl:w-48 py-1 flex justify-center items-center ${
-              activeTab == "Fullstack" ? "font-bold border-b-2 border-sky-900" : ""
+              activeTab == "Design" ? "font-bold border-b-2 border-sky-900" : ""
             }`}
-            onClick={() => setActiveTab("Fullstack")}
+            onClick={() => setActiveTab("Design")}
           >
-            <a className="text-center">FullStack Developement</a>
+            <a className="text-center">Design</a>
           </li>
           <li
             className={`cursor-pointer w-36 xl:w-44 py-1 flex justify-center items-center ${
@@ -75,8 +72,8 @@ const Portofolio = ({ setActiveScreen }) => {
           value={activeTab}
           onChange={(e) => setActiveTab(e.target.value)}
         >
-          <option value="UI/UX">UI/UX Design</option>
-          <option value="Fullstack">FullStack Developement</option>
+          <option value="UI/UX">UI/UX </option>
+          <option value="Design">Design</option>
           <option value="Certs">Certificate</option>
         </select>
       </nav>

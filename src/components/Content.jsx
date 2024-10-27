@@ -49,28 +49,15 @@ const Content = ({ setActiveScreen }) => {
             <p className="m-0">A collection of certificates I have earned.</p>
           </div>
         </div>
-
-        <div className="flex justify-between rounded-[8px] border border-[#333] p-4 m-2 md:m-4 gap-3 items-center">
-          <div className="icon">
-            <img src="/front-end.png" alt="" width="100" height="100" />
-          </div>
-          <div className="w-3/4 text-[#555]">
-            <h3 className="text-[#f2f2f2] mb-[3px]">Frontend Design</h3>
-            <p className="m-0">
-              I have attached several front-end designs I have created for your
-              review.
-            </p>
-          </div>
-        </div>
         <div className="flex justify-between rounded-[8px] border border-[#333] p-4 m-2 md:m-4 gap-3 items-center">
           <div className="icon">
             <img src="/full-stack.png" alt="" />
           </div>
           <div className="w-3/4 text-[#555]">
-            <h3 className="text-[#f2f2f2] mb-[3px]">Full Stack Developement</h3>
+            <h3 className="text-[#f2f2f2] mb-[3px]">Design</h3>
             <p className="m-0">
-              Here are some examples of full-stack web applications I've
-              developed.
+            My design journey has led me to create a portfolio showcasing everything 
+            from bold posters to refined name cards and visually stunning Instagram posts.
             </p>
           </div>
         </div>
