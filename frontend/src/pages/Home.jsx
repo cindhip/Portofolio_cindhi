@@ -1,5 +1,5 @@
-import Aside from "./components/Aside";
-import More from "./components/More";
+import Aside from "../components/home/Aside";
+import More from "../components/home/More";
 
 function App() {
   return (
