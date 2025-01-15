@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Tab1 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const res = await axios.get('http://localhost:3000/project');
+      setImages(res.data);
+    };
+
+    fetchImages();
+  }, []);
 
   const handleImageClick = (imageSrc) => {
     setSelectedImage(imageSrc);
@@ -11,23 +22,10 @@ const Tab1 = () => {
     setSelectedImage(null);
   };
 
-  const images = [
-    { src: 'finance.png', alt: 'Image 1' },
-    { src: 'mockup2.png', alt: 'Image 2' },
-    { src: 'tour&travel.png', alt: 'Image 3' },
-    { src: 'mockup3.png', alt: 'Image 4' },
-    // Add more images here
-  ];
-
   const getCollageImages = (index) => {
-    // Define the collage images for each main image
-    const collageImages = {
-      0: ['image5.png', 'image6.png', 'image7.png'], // For finance.png
-      1: ['image8.png', 'image9.png', 'image10.png'], // For mockup2.png
-      2: ['1.png', '2.png', '3.png', '4.png', '5.png'], // For tour&travel.png
-      3: ['image14.png', 'image15.png', 'image16.png'], // For mockup3.png
-      // Add more collage images for other main images
-    };
+    const collageImages = images.map((image, index) => {
+      return image.images.map((image) => image.url);
+    })
 
     return collageImages[index];
   };
@@ -37,8 +35,8 @@ const Tab1 = () => {
       {images.map((image, index) => (
         <img
           key={index}
-          src={image.src}
-          alt={image.alt}
+          src={image.thumbnail}
+          alt={"UIUX " + index}
           className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
           onClick={() => handleImageClick(index)}
         />
