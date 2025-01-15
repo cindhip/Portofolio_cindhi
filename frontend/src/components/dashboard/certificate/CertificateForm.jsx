@@ -1,33 +1,33 @@
 import React, { useState } from "react";
-import { createDesign } from "../../../api/projectApi";
+import { createCertificate } from "../../../api/projectApi";
 
-const DesignForm = ({ onAdd }) => {
+const CertificateForm = ({ onAdd }) => {
   const [title, setTitle] = useState("");
-  const [thumbnail, setThumbnail] = useState(null);
+  const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !thumbnail) {
+    if (!title || !image) {
       return alert("Please fill all fields");
     }
 
     const formData = new FormData();
     formData.append("title", title);
-    if (thumbnail) formData.append("thumbnail", thumbnail);
+    if (image) formData.append("image", image);
 
     setLoading(true);
-    await createDesign(formData);
+    await createCertificate(formData);
     onAdd();
     setTitle("");
-    setThumbnail(null);
+    setImage(null);
     setLoading(false);
   };
 
   return (
     <form onSubmit={handleSubmit} className="p-2 flex flex-col gap-4 w-max">
-      <h2 className="font-bold text-lg">Add Design</h2>
+      <h2 className="font-bold text-lg">Add Certificate</h2>
       <div className="flex gap-2 items-center justify-between">
         <label>Title</label>
         <input
@@ -35,25 +35,25 @@ const DesignForm = ({ onAdd }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
-          placeholder="Design title"
+          placeholder="Certificate title"
           className="input input-bordered w-full max-w-xs"
         />
       </div>
       <div className="flex gap-2 items-center justify-between">
-        <label>Thumbnail</label>
+        <label>Image</label>
         <input
           type="file"
           accept="image/*"
-          onChange={(e) => setThumbnail(e.target.files[0])}
+          onChange={(e) => setImage(e.target.files[0])}
           required
           className="file-input file-input-bordered w-full max-w-xs"
         />
       </div>
       <button className="btn btn-primary w-max" type="submit">
-        {loading ? <span className="loading loading-spinner loading-md"></span> : "Add Design"}
+        {loading ? <span className="loading loading-spinner loading-md"></span> : "Add Certificate"}
       </button>
     </form>
   );
 };
 
-export default DesignForm;
+export default CertificateForm;

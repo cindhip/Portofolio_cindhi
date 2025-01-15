@@ -39,7 +39,7 @@ export const deleteDesign = async (id) => {
 }
 
 // Certificate
-export const getCertificates = async () => {
+export const getCertificate = async () => {
   const response = await axios.get(BASE_URL + "/certificate");
   return response.data;
 }

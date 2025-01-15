@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getDesign, deleteDesign } from "../../../api/projectApi";
+import { getCertificate, deleteCertificate } from "../../../api/projectApi";
 
-const DesignList = ({ onDelete }) => {
+const CertificateList = ({ onDelete }) => {
   const [designs, setDesigns] = useState([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const data = await getDesign();
+      const data = await getCertificate();
       setDesigns(data);
     };
     fetchProjects();
@@ -14,20 +14,20 @@ const DesignList = ({ onDelete }) => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this project?")) {
-      await deleteDesign(id);
-      onDelete(); // Refresh data after delete
+      await deleteCertificate(id);
+      onDelete();
     }
   };
 
   return (
     <div>
-      <h2 className="font-bold text-xl">Design Project</h2>
+      <h2 className="font-bold text-xl">Certificate</h2>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
             <th></th>
             <th>Title</th>
-            <th>Thumbnail</th>
+            <th>Image</th>
             <th>Actions</th>
           </thead>
           <tbody>
@@ -36,7 +36,7 @@ const DesignList = ({ onDelete }) => {
                 <td>{index + 1}</td>
                 <td>{project.title}</td>
                 <td>
-                  <img src={project.thumbnail} alt={project.title} className="w-52 h-52 object-cover"/>
+                  <img src={project.image} alt={project.title} className="h-52 object-cover"/>
                 </td>
                 <td>
                   <button onClick={() => handleDelete(project._id)} className="btn btn-warning">
@@ -52,4 +52,4 @@ const DesignList = ({ onDelete }) => {
   );
 };
 
-export default DesignList;
+export default CertificateList;

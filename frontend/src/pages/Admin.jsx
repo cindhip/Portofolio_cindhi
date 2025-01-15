@@ -4,6 +4,9 @@ import ProjectList from "../components/dashboard/ui-ux/ProjectList";
 import ProjectForm from "../components/dashboard/ui-ux/ProjectForm";
 import DesignForm from "../components/dashboard/design/DesignForm";
 import DesignList from "../components/dashboard/design/DesignList";
+import CertificateForm from "../components/dashboard/certificate/CertificateForm";
+import CertificateList from "../components/dashboard/certificate/CertificateList";
+import Dashboard from "../components/dashboard/Dashboard";
 
 const Admin = () => {
   const [refresh, setRefresh] = useState(false);
@@ -18,10 +21,8 @@ const Admin = () => {
         </label>
         <div className="w-full h-full xl:h-screen">
           <Routes>
-            <Route path="/dashboard" element={<h1>Ini Dashboard Atmin</h1>} />
-
             <Route
-              path="/dashboard/ui-ux"
+              path="/atmin/"
               element={
                 <div className="flex flex-col">
                   <ProjectForm onAdd={handleRefresh} />
@@ -32,7 +33,7 @@ const Admin = () => {
             />
 
             <Route
-              path="/dashboard/design"
+              path="/atmin/design"
               element={
                 <div className="flex flex-col">
                   <DesignForm onAdd={handleRefresh} />
@@ -41,23 +42,34 @@ const Admin = () => {
                 </div>
               }
             />
+
+            <Route
+              path="/atmin/certificate"
+              element={
+                <div className="flex flex-col">
+                  <CertificateForm onAdd={handleRefresh} />
+                  <div className="divider"></div>
+                  <CertificateList onDelete={handleRefresh} />
+                </div>
+              }
+            />
           </Routes>
         </div>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side h-screen sticky right-0">
         <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 leading-10">
           <li>
             <a className="font-bold text-xl disabled pointer-events-none">Dashboard Atmin</a>
           </li>
           <li>
-            <Link to="/dashboard/ui-ux">UI/UX</Link>
+            <Link to="/atmin/">UI/UX</Link>
           </li>
           <li>
-            <Link to="/dashboard/design">Design</Link>
+            <Link to="/atmin/design">Design</Link>
           </li>
           <li>
-            <a>Certificate</a>
+            <Link to="/atmin/certificate ">Certificate</Link>
           </li>
         </ul>
       </div>
