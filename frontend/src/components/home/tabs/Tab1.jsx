@@ -7,7 +7,7 @@ const Tab1 = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await axios.get('http://localhost:3000/project');
+      const res = await axios.get('https://colourful-floris-woxyin-ae88053f.koyeb.app/project');
       setImages(res.data);
     };
 

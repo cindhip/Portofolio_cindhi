@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://colourful-floris-woxyin-ae88053f.koyeb.app";
 
 // UI UX Project
 export const getProjects = async () => {
