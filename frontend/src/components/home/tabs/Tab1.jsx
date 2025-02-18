@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { getProjects } from '../../../api/projectApi';
 
 const Tab1 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -7,8 +7,8 @@ const Tab1 = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await axios.get('https://colourful-floris-woxyin-ae88053f.koyeb.app/project');
-      setImages(res.data);
+      const res = await getProjects();
+      setImages(res);
     };
 
     fetchImages();
@@ -43,8 +43,8 @@ const Tab1 = () => {
       ))}
 
       {selectedImage !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
-          <div className="bg-white rounded-lg p-4 grid grid-cols-3 gap-4">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center p-5 sm:p-10">
+          <div className="bg-white rounded-lg p-4 grid lg:grid-cols-3 gap-4 overflow-y-auto max-h-[95vh] relative">
             <button className="absolute top-4 right-4 rounded-full bg-gray-200 p-2 hover:bg-gray-300" onClick={handleCloseModal}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
