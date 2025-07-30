@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProjects } from "../../../api/projectApi";
+import { Loader2 } from "lucide-react";
 
 const Tab1 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -31,6 +32,10 @@ const Tab1 = () => {
 
     fetchImages();
   }, []);
+
+  if (images.length === 0) {
+    return <Loader2 className="animate-spin h-10 w-10 text-gray-500 mx-auto mt-20" />;
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
