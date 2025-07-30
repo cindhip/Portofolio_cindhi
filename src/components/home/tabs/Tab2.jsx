@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { getDesign } from "../../../api/projectApi";
 
 const Tab2 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const res = await axios.get("https://colourful-floris-woxyin-ae88053f.koyeb.app/design");
-      setImages(res.data);
-    };
-
-    fetchImages();
-  }, []);
-
+  const base_url = import.meta.env.VITE_API_URL;
+  
   const handleImageClick = (imageSrc) => {
     setSelectedImage(imageSrc);
   };
@@ -22,14 +15,24 @@ const Tab2 = () => {
     setSelectedImage(null);
   };
 
+  useEffect(() => {
+    const fetchImages = async () => {
+      const res = await getDesign();
+      setImages(res.docs);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {images.map((image, index) => (
+      {images.map((item, index) => (
         <img
-          src={image.thumbnail}
-          alt={image.title}
+          key={index}
+          src={base_url + item.thumbnail.url}
+          alt={item.title}
           className="rounded-lg transition duration-500 ease-in-out transform hover:scale-105 cursor-pointer aspect-square w-full h72 object-cover"
-          onClick={() => handleImageClick(image.thumbnail)}
+          onClick={() => handleImageClick(item.thumbnail)}
         />
       ))}
 

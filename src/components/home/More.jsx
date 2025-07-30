@@ -1,4 +1,4 @@
-import React, { act, useState } from "react";
+import { useState } from "react";
 import Content from "./Content";
 import Portofolio from "./Portofolio";
 
